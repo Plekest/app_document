@@ -20,6 +20,12 @@
       rel="stylesheet"
     />
 
+    <!-- Jspreadsheet -->
+    <script src="https://cdn.jsdelivr.net/npm/jspreadsheet@11/dist/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet@11/dist/jspreadsheet.min.css" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/jsuites/dist/jsuites.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites/dist/jsuites.min.css" type="text/css" />
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
@@ -71,8 +77,28 @@
       ></div>
     </div>
     <div class="text-left justify-center w-full px-4 max-w-4xl mx-auto">
+      <div id='spreadsheet'></div>
       <p class="mt-10 ml-5 text-left">See this code example</p>
       <div id="doc-content-language"></div>
     </div>
   </body>
+  <script>
+    jspreadsheet.setLicense('###license###');
+
+    jspreadsheet(document.getElementById('spreadsheet'), {
+        worksheets: [{
+            data: [
+                ['Mazda', 2001, 2000],
+                ['Peugeot', 2010, 5000],
+                ['Honda Fit', 2009, 3000],
+                ['Honda CRV', 2010, 6000],
+            ],
+            columns: [
+                { title:'Model', width:'300px' },
+                { title:'Year', width:'80px' },
+                { title:'Price', width:'100px' },
+            ]
+        }]
+    });
+  </script>
 </html>

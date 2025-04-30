@@ -37,7 +37,7 @@ export function setupRouter(rawMarkdown = null) {
   }
 
   router.on("/", () => {
-    renderContentLanguage("jsx");
+    renderContentLanguage("html");
   });
 
   router.resolve();
