@@ -1,5 +1,7 @@
+import { routeFileMD } from "../env.js";
+
 export async function fetchMarkdown() {
-  const res = await fetch("docs.md");
+  const res = await fetch(routeFileMD());
   return await res.text();
 }
 
