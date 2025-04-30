@@ -28,8 +28,15 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.2/dist/purify.min.js"></script>
   </head>
-  <body>
-    <ul>
+  <body class="text-center">
+    <h1 class="text-5xl font-extrabold text-center mb-5">
+      Jspread<span class="text-red-500">sheet</span
+      ><span
+        class="bg-red-500 text-gray-200 text-2xl font-semibold inline-block px-2.5 py-0.5 rounded-sm ms-2"
+        >Doc</span
+      >
+    </h1>
+    <ul class="pt-5">
       <button
         data-framework="jsx"
         type="button"
@@ -51,9 +58,11 @@
         type="button"
         class="text-gray-900 bg-gradient-to-r from-teal-200 via-teal-300 to-green-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
       >
-        <img src="src/assets/icons/vue.png" alt=" ícone vue" />
+        <img src="src/assets/icons/vue.png" alt="ícone vue" />
       </button>
     </ul>
-    <div id="doc-content"></div>
+    <div class="flex justify-center items-center h-full">
+      <div id="doc-content"></div>
+    </div>
   </body>
 </html>
