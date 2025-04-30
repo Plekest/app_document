@@ -1,8 +1,13 @@
 import { setupRouter, navigateTo } from "./router.js";
-import { fetchMarkdown, fetchMarkdownFileDownload } from "./markdown.js";
+import { fetchMarkdown, fetchMarkdownFileDownload, renderMarkdown, removeCodeBlocksByFrameworks, stripBeforeFirstHeading } from "./markdown.js";
 import { downloadFileMD, frameworks } from "../env.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
+
+  const fetchRawMarkdown = await fetchMarkdown();
+  const cleanedMD = removeCodeBlocksByFrameworks(fetchRawMarkdown);
+  const indexMD = stripBeforeFirstHeading(cleanedMD);
+  renderMarkdown(indexMD);
 
   const hasSavedData = frameworks().some((fw) =>
     localStorage.getItem(`/docs/${fw}-local-storage/getting-started/`)
@@ -17,8 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupRouter();
   } else {
     console.log("Carregando Markdown da web...");
-    const markdown = await fetchMarkdown();
-    setupRouter(markdown);
+    setupRouter(fetchRawMarkdown);
   }
 
   bindButtons();
