@@ -5,3 +5,9 @@ body {
   line-height: 1.6;
   padding: 2rem;
 }
+
+#spreadsheet table,
+#spreadsheet td,
+#spreadsheet th {
+  color: #1e1e1e;
+}
