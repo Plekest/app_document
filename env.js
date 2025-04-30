@@ -8,7 +8,7 @@
  * @returns {string} The URL of the Markdown file.
  */
 export function routeFileMD() {
-    return 'https://raw.githubusercontent.com/Plekest/app_document/main/docs.md';
+    return 'https://raw.githubusercontent.com/Plekest/app_document/main/docs/docs.md';
 }
 
 /**
