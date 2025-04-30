@@ -1,4 +1,4 @@
-import { routeFileMD, frameworksIndex } from "../env.js";
+import { routeFileMD, frameworksIndex,  frameworks } from "../env.js";
 
 export async function fetchMarkdown() {
   const res = await fetch(routeFileMD());

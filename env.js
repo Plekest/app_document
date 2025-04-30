@@ -49,5 +49,5 @@ export function frameworks() {
  * @returns {Array} An array of strings representing the names of the frameworks.
  */
 export function frameworksIndex() {
-    return ["jsx", "vue", "angularjs"]; // usada para limpar só os blocos framework-específicos do index
+    return ["jsx", "vue", "angularjs"];
   }

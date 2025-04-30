@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     localStorage.getItem(`/docs/${fw}-local-storage/getting-started/`)
   );
 
-  if (downloadFileMD() === true) {
+  if (downloadFileMD() == 1) {
     console.log("Baixando e salvando Markdown...");
     await fetchMarkdownFileDownload();
     setupRouter();
