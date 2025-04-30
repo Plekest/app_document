@@ -43,7 +43,7 @@ export function frameworks() {
 }
 
 /**
- * Returns an array of frameworks to search in the markdown in the index.
+ * Returns an array of frameworks to search in the markdown in the index and erase.
  *
  * @function
  * @returns {Array} An array of strings representing the names of the frameworks.
