@@ -24,7 +24,7 @@ export function language() {
 
 
 /**
- * Checks if the MD file is to be downloaded.
+ * Checks if the MD file is to be downloaded, if true the data is saved in localstorage.
  *
  * @returns {string} Returns '1' if the file is to be downloaded.
  */
