@@ -1,0 +1,27 @@
+body {
+  font-family: "Fira Code", monospace;
+  background-color: #1e1e1e;
+  color: #ddd;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+button {
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+pre {
+  background-color: #2d2d2d;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}

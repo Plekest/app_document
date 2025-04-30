@@ -1,3 +1,4 @@
+// Criado somente como facilitador para testes e desenvolvimento de código.
 
 /**
  * Returns the URL of a Markdown file hosted on GitHub.

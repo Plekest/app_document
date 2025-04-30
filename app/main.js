@@ -1,5 +1,5 @@
-import { setupRouter, navigateTo } from "./app/router.js";
-import { fetchMarkdown } from "./app/markdown.js";
+import { setupRouter, navigateTo } from "./router.js";
+import { fetchMarkdown } from "./markdown.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const markdown = await fetchMarkdown();
