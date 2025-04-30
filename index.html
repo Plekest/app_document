@@ -26,43 +26,53 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
     <script src="https://unpkg.com/navigo@8.11.1/lib/navigo.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.2/dist/purify.min.js"></script>
   </head>
   <body class="text-center">
-    <h1 class="text-5xl font-extrabold text-center mb-5">
-      Jspread<span class="text-red-500">sheet</span
-      ><span
-        class="bg-red-500 text-gray-200 text-2xl font-semibold inline-block px-2.5 py-0.5 rounded-sm ms-2"
-        >Doc</span
-      >
-    </h1>
-    <ul class="pt-5">
-      <button
-        data-framework="jsx"
-        type="button"
-        class="text-gray-900 bg-gradient-to-r from-yellow-200 via-yellow-300 to-gray-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-      >
-        <img src="src/assets/icons/javascript.png" alt="ícone javascript" />
-      </button>
-
-      <button
-        data-framework="angularjs"
-        type="button"
-        class="text-gray-900 bg-gradient-to-r from-gray-400 via-gray-300 to-blue-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-      >
-        <img src="src/assets/icons/react.png" alt="ícone react" />
-      </button>
-
-      <button
-        data-framework="vue"
-        type="button"
-        class="text-gray-900 bg-gradient-to-r from-teal-200 via-teal-300 to-green-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-      >
-        <img src="src/assets/icons/vue.png" alt="ícone vue" />
-      </button>
-    </ul>
-    <div class="flex justify-center items-center h-full">
-      <div id="doc-content"></div>
+    <nav class="flex items-center justify-center">
+      <h1 class="text-5xl font-extrabold text-center mb-5 pb-5 pr-10">
+        Jspread<span class="text-red-500">sheet</span>
+        <span class="bg-red-500 text-gray-200 text-2xl font-semibold inline-block px-2.5 py-0.5 rounded-sm ms-2">Doc</span>
+      </h1>
+      <ul class="pt-5 pb-10 pl-10 flex space-x-2">
+        <li>
+          <button data-framework="jsx" type="button" class="cursor-pointer">
+            <img src="src/assets/icons/javascript.png" alt="ícone javascript" class="w-8 h-8" />
+          </button>
+        </li>
+      
+        <li>
+          <button data-framework="angularjs" type="button" class="cursor-pointer">
+            <img src="src/assets/icons/react.png" alt="ícone react" class="w-8 h-8" />
+          </button>
+        </li>
+      
+        <li>
+          <button data-framework="vue" type="button" class="cursor-pointer">
+            <img src="src/assets/icons/vue.png" alt="ícone vue" class="w-8 h-8" />
+          </button>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="flex text-left justify-center">
+      <div
+      id="doc-content-index"
+      class="space-y-4 text-base leading-relaxed 
+      [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mb-4 [&>h1]:text-gray-200 
+      [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mt-6 [&>h2]:mb-3 [&>h2]:text-gray-300 
+      [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-10 [&>h3]:text-gray-400 
+      [&>p]:mb-10 [&>p]:text-left
+      [&>p>a]:text-green-200 [&>p>a]:underline
+      [&>table]:text-sm [&>table]:text-left [&>table]:rounded-t-sm [&>table]:overflow-hidden      
+      [&>table>thead]:text-xs [&>table>thead]:uppercase [&>table>thead]:bg-gray-600 
+      [&>table>tbody>tr>td]:pr-10
+      [&>table>tbody>tr]:border-b [&>table>tbody>tr]:border-gray-600
+      max-w-4xl w-full px-4"
+      ></div>
+    </div>
+    <div class="text-left justify-center w-full px-4 max-w-4xl mx-auto">
+      <p class="mt-10 ml-5 text-left">See this code example</p>
+      <div id="doc-content-language"></div>
     </div>
   </body>
 </html>
