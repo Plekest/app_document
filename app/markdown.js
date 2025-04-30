@@ -1,4 +1,4 @@
-import { routeFileMD, frameworks } from "../env.js";
+import { routeFileMD, frameworksIndex } from "../env.js";
 
 export async function fetchMarkdown() {
   const res = await fetch(routeFileMD());
@@ -59,7 +59,7 @@ export function renderMarkdown(rawMarkdown) {
 export function removeCodeBlocksByFrameworks(raw) {
   let cleaned = raw;
 
-  frameworks().forEach((framework) => {
+  frameworksIndex ().forEach((framework) => {
     const regex = new RegExp(
       "```" + framework + "[^\\n]*\\n([\\s\\S]*?)```",
       "g"

@@ -39,5 +39,15 @@ export function downloadFileMD() {
  * @returns {Array} An array of strings representing the names of the frameworks.
  */
 export function frameworks() {
-    return ['jsx', 'angularjs', 'vue'];
+    return ['html', 'jsx', 'vue'];
 }
+
+/**
+ * Returns an array of frameworks to search in the markdown in the index.
+ *
+ * @function
+ * @returns {Array} An array of strings representing the names of the frameworks.
+ */
+export function frameworksIndex() {
+    return ["jsx", "vue", "angularjs"]; // usada para limpar só os blocos framework-específicos do index
+  }

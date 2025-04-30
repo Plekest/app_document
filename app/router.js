@@ -1,5 +1,6 @@
 import { filterMarkdown } from "./markdown.js";
 import { renderLanguagePrism } from "./render.js";
+import { frameworks } from "../env.js";
 
 export function setupRouter(rawMarkdown = null) {
   const router = new Navigo("/", { hash: false });
@@ -17,8 +18,7 @@ export function setupRouter(rawMarkdown = null) {
   }
 
   if (rawMarkdown) {
-    const frameworks = ["jsx", "angularjs", "vue"];
-    frameworks.forEach((framework) => {
+    frameworks().forEach((framework) => {
       const route = `/docs/${framework}-data-grid/getting-started/`;
       router.on(route, () => renderContentLanguage(framework));
     });
