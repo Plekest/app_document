@@ -22,3 +22,12 @@ export function language() {
     return 'javascript';
 }
 
+
+/**
+ * Checks if the MD file is to be downloaded.
+ *
+ * @returns {string} Returns '1' if the file is to be downloaded.
+ */
+export function downloadFileMD() {
+    return false;
+}

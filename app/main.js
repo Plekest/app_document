@@ -1,9 +1,18 @@
 import { setupRouter, navigateTo } from "./router.js";
-import { fetchMarkdown } from "./markdown.js";
+import { fetchMarkdown, fetchMarkdownFileDownload } from "./markdown.js";
+import { downloadFileMD } from "../env.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const markdown = await fetchMarkdown();
-  setupRouter(markdown);
+  if (downloadFileMD() === true) {
+    console.log("Baixando e salvando Markdown...");
+    await fetchMarkdownFileDownload();
+    setupRouter();
+  } else {
+    console.log("Carregando Markdown da web...");
+    const markdown = await fetchMarkdown();
+    setupRouter(markdown);
+  }
+
   bindButtons();
 });
 
