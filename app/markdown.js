@@ -59,13 +59,25 @@ export function renderMarkdown(rawMarkdown) {
 export function removeCodeBlocksByFrameworks(raw) {
   let cleaned = raw;
 
-  frameworksIndex ().forEach((framework) => {
+  frameworksIndex().forEach((framework) => {
     const regex = new RegExp(
       "```" + framework + "[^\\n]*\\n([\\s\\S]*?)```",
       "g"
     );
     cleaned = cleaned.replace(regex, "");
   });
+
+  const htmlRegex = /```html[^]*?```/g;
+  let match;
+  let count = 0;
+
+  while ((match = htmlRegex.exec(cleaned)) !== null) {
+    count++;
+    if (count === 2) {
+      cleaned = cleaned.slice(0, match.index) + cleaned.slice(match.index + match[0].length);
+      break;
+    }
+  }
 
   return cleaned;
 }
