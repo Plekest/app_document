@@ -1,10 +1,10 @@
 import { filterMarkdown } from "./markdown.js";
-import { renderHtml } from "./render.js";
+import { renderLanguagePrism } from "./render.js";
 
 export function setupRouter(rawMarkdown = null) {
   const router = new Navigo("/", { hash: false });
 
-  async function renderContent(framework) {
+  async function renderContentLanguage(framework) {
     const path = `/docs/${framework}-local-storage/getting-started/`;
     let content = localStorage.getItem(path);
 
@@ -13,14 +13,14 @@ export function setupRouter(rawMarkdown = null) {
       content = filtered.join("\n\n");
     }
 
-    renderHtml(content || `<p>Nenhum conteúdo encontrado para ${framework}.</p>`);
+    renderLanguagePrism(content || `<p>Nenhum conteúdo encontrado para ${framework}.</p>`);
   }
 
   if (rawMarkdown) {
     const frameworks = ["jsx", "angularjs", "vue"];
     frameworks.forEach((framework) => {
       const route = `/docs/${framework}-data-grid/getting-started/`;
-      router.on(route, () => renderContent(framework));
+      router.on(route, () => renderContentLanguage(framework));
     });
   } else {
     const keys = Object.keys(localStorage).filter((k) =>
@@ -31,13 +31,13 @@ export function setupRouter(rawMarkdown = null) {
       const match = key.match(/^\/docs\/([a-zA-Z0-9]+)-local-storage\/getting-started\/$/);
       if (match) {
         const framework = match[1];
-        router.on(key, () => renderContent(framework));
+        router.on(key, () => renderContentLanguage(framework));
       }
     });
   }
 
   router.on("/", () => {
-    renderContent("jsx");
+    renderContentLanguage("jsx");
   });
 
   router.resolve();
