@@ -26,8 +26,18 @@ export function language() {
 /**
  * Checks if the MD file is to be downloaded, if true the data is saved in localstorage.
  *
- * @returns {string} Returns '1' if the file is to be downloaded.
+ * @returns {string} Returns 'true' if the file is to be downloaded.
  */
 export function downloadFileMD() {
     return false;
+}
+
+/**
+ * Returns an array of frameworks to search in the markdown.
+ *
+ * @function
+ * @returns {Array} An array of strings representing the names of the frameworks.
+ */
+export function frameworks() {
+    return ['jsx', 'angularjs', 'vue'];
 }
