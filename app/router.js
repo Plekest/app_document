@@ -1,6 +1,6 @@
 import { filterMarkdown } from "./markdown.js";
 import { renderLanguagePrism } from "./render.js";
-import { frameworks } from "../env.js";
+import { frameworkMap } from "../env.js";
 
 export function setupRouter(rawMarkdown = null) {
   const router = new Navigo("/", { hash: false });
@@ -18,20 +18,20 @@ export function setupRouter(rawMarkdown = null) {
   }
 
   if (rawMarkdown) {
-    frameworks().forEach((framework) => {
-      const route = `/docs/${framework}-data-grid/getting-started/`;
-      router.on(route, () => renderContentLanguage(framework));
+    Object.entries(frameworkMap()).forEach(([real, alias]) => {
+      const route = `/docs/${alias}-data-grid/getting-started/`;
+      router.on(route, () => renderContentLanguage(real));
     });
   } else {
     const keys = Object.keys(localStorage).filter((k) =>
       /^\/docs\/([a-zA-Z0-9]+)-local-storage\/getting-started\/$/.test(k)
     );
-
+    
     keys.forEach((key) => {
       const match = key.match(/^\/docs\/([a-zA-Z0-9]+)-local-storage\/getting-started\/$/);
       if (match) {
-        const framework = match[1];
-        router.on(key, () => renderContentLanguage(framework));
+        const alias = match[1];
+        router.on(key, () => renderContentLanguage(alias));
       }
     });
   }
@@ -45,10 +45,12 @@ export function setupRouter(rawMarkdown = null) {
 }
 
 export function navigateTo(framework) {
-  const isLocal = localStorage.getItem(`/docs/${framework}-local-storage/getting-started/`);
+  const alias = frameworkMap()[framework] || framework;
+
+  const isLocal = localStorage.getItem(`/docs/${alias}-local-storage/getting-started/`);
   const path = isLocal
-    ? `/docs/${framework}-local-storage/getting-started/`
-    : `/docs/${framework}-data-grid/getting-started/`;
+    ? `/docs/${alias}-local-storage/getting-started/`
+    : `/docs/${alias}-data-grid/getting-started/`;
 
   window.router.navigate(path);
 }
