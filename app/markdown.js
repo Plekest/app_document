@@ -1,4 +1,4 @@
-import { routeFileMD } from "../env.js";
+import { routeFileMD, frameworks } from "../env.js";
 
 export async function fetchMarkdown() {
   const res = await fetch(routeFileMD());
@@ -14,10 +14,8 @@ export async function fetchMarkdownFileDownload() {
   }
 
   const content = await res.text();
-  
-  const frameworks = ["jsx", "angularjs", "vue"];
 
-  frameworks.forEach((framework) => {
+  frameworks().forEach((framework) => {
     const regex = new RegExp("```" + framework + "[^\\n]*\\n([\\s\\S]*?)```", "g");
     const matches = [...content.matchAll(regex)];
 
